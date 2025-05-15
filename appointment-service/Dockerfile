@@ -1,14 +1,17 @@
-# Use official Node.js base image
-FROM node:18
+# Use Node.js base image
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy your standalone JS file
+# Copy your application code
 COPY appointment-service.js .
 
-# Expose the port your app listens on
+# Manually install express since no package.json
+RUN npm install express
+
+# Expose the app port
 EXPOSE 3001
 
-# Command to run your script
+# Run the app
 CMD ["node", "appointment-service.js"]

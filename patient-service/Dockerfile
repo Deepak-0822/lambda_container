@@ -1,20 +1,14 @@
-# Use official Node.js LTS image
+# Use official Node.js base image
 FROM node:18
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy your standalone JS file
+COPY patient-service.js .
 
-# Install dependencies
-RUN npm install
-
-# Copy application source
-COPY . .
-
-# Expose the port the app runs on
+# Expose the port your app listens on
 EXPOSE 3000
 
-# Start the app
-CMD ["node", "index.js"]
+# Command to run your script
+CMD ["node", "patient-service.js"]

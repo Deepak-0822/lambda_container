@@ -11,7 +11,7 @@ COPY patient-service.js .
 RUN npm install express
 
 # Expose the app port
-EXPOSE 3000
+EXPOSE 80
 
 # Run the app
 CMD ["node", "patient-service.js"]

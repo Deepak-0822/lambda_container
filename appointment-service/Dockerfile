@@ -11,7 +11,7 @@ COPY appointment-service.js .
 RUN npm install express
 
 # Expose the app port
-EXPOSE 3001
+EXPOSE 3000
 
 # Run the app
 CMD ["node", "appointment-service.js"]
